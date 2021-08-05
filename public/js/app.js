@@ -11,13 +11,13 @@ function callRpcData() {
         url: "CallHandler.php",
         data: { method_name: methodName, params : paramsVal },
         success: function (result) {
-            var data = JSON.parse(result);
-            console.log(data);
-            var obj = data.data;
-            if(data.status){
+            var dataResult = JSON.parse(result);
+            // console.log(data);
+            var obj = dataResult.data;
+            if(dataResult.status){
                 $("#error-msg").addClass('hidden');
-            if(jQuery.type( data.data ) === "string"){
-                $("#result-data").text(data.data);
+            if(jQuery.type( dataResult.data ) === "string"){
+                $("#result-data").text(dataResult.data);
             }else{
 
             for (const [key, value] of Object.entries(obj)) {
@@ -36,7 +36,7 @@ function callRpcData() {
         }
     }else{
         $("#error-msg").removeClass('hidden');
-        $("#error-msg").html(data.data.message);
+        $("#error-msg").html(dataResult.data.message);
         
     }
         }
@@ -50,10 +50,10 @@ function getAllMethods() {
         data: { method_name: 'rpc_methods'},
         success: function (result) {
             
-            var data = JSON.parse(result);
-            console.log(data);
+            var dataResult = JSON.parse(result);
+            // console.log(dataResult);
 
-            optionData = data.methods;
+            optionData = dataResult.data.methods;
 
             // Add options
             $("#rpc-method-name").html("");
