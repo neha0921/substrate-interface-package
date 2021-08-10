@@ -23,7 +23,7 @@ composer require neha0921/substrate-interface-package
 ## Usage (Just Like)
 
 ```php
-$testClass = new ApiHandler("http_url");
+$testClass = new SubstrateInterface("http_url");
 echo $testClass->rpc->system->name();
 ```
 

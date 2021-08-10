@@ -7,7 +7,7 @@ namespace neha0921\SubstrateInterfacePackage;
 require __DIR__ . '/../vendor/autoload.php';
 
 
-// $obj = new ApiHandler("http://127.0.0.1:8000");
+// $obj = new SubstrateInterface("http://127.0.0.1:8000");
 // echo $obj->rpc->rpc->methods();
 
 /*Call selected method with input parameter  */
@@ -16,7 +16,7 @@ if (isset($_POST['method_name'])) {
     $params = isset($_POST['params']) ? $_POST['params'] : [];
     $id = isset($_POST['id']) ? $_POST['id'] : 1;
 
-    $obj = new ApiHandler("http://127.0.0.1:8000");
+    $obj = new SubstrateInterface("http://127.0.0.1:8000");
 
     switch ($methodName) {
 
