@@ -17,6 +17,7 @@ class Rpc
         $this->author = new Author($apiHandler);
         $this->chain = new Chain($apiHandler);
         $this->grandpa = new Grandpa($apiHandler);
+        $this->keypair = new Keypair($apiHandler);
     }
 
     public function get_system()
@@ -39,6 +40,10 @@ class Rpc
     {
         return ($this->grandpa);
     }
+    public function get_keypair()
+    {
+        return ($this->keypair);
+    }
 
     /* rpc_methods endpoint API*/
 
@@ -58,7 +63,7 @@ class Rpc
         $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         return json_encode($result);
     }
-    /* subscribe_newHead endpoint API*/
+    /* unsubscribe_newHead endpoint API*/
 
     public function unsubscribe_newHead()
     {

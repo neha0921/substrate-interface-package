@@ -60,6 +60,9 @@ if (isset($_POST['method_name'])) {
         case 'system_version':
             echo  $obj->rpc->system->version();
             break;
+        case 'state_call':
+            echo  $obj->rpc->state->call();
+            break;
         case 'state_getMetadata':
             echo  $obj->rpc->state->getMetadata();
             break;
@@ -78,6 +81,18 @@ if (isset($_POST['method_name'])) {
         case 'state_unsubscribeStorage':
             echo  $obj->rpc->state->unsubscribeStorage();
             break;
+        case 'state_getStorage':
+            echo  $obj->rpc->state->getStorage($params);
+            break;
+        case 'state_getStorageHash':
+            echo  $obj->rpc->state->getStorageHash($params);
+            break;
+        case 'state_getStorageSize':
+            echo  $obj->rpc->state->getStorageSize($params);
+            break;
+        case 'state_queryStorage':
+            echo  $obj->rpc->state->queryStorage($params);
+            break;
         case 'subscribe_newHead':
             echo  $obj->rpc->rpc->subscribe_newHead();
             break;
@@ -86,6 +101,9 @@ if (isset($_POST['method_name'])) {
             break;
         case 'author_pendingExtrinsics':
             echo  $obj->rpc->author->pendingExtrinsics();
+            break;
+        case 'author_submitExtrinsic':
+            echo  $obj->rpc->author->submitExtrinsic($params);
             break;
         case 'chain_getBlock':
             echo  $obj->rpc->chain->getBlock();
@@ -128,6 +146,18 @@ if (isset($_POST['method_name'])) {
             break;
         case 'grandpa_subscribeJustifications':
             echo  $obj->rpc->grandpa->subscribeJustifications();
+            break;
+        case 'keypair_create':
+            echo  $obj->rpc->keypair->create($params);
+            break;
+        case 'keypair_inspect':
+            echo  $obj->rpc->keypair->inspect($params);
+            break;
+        case 'keypair_sign':
+            echo  $obj->rpc->keypair->sign($params);
+            break;
+        case 'keypair_verify':
+            echo  $obj->rpc->keypair->verify($params);
             break;
     }
 }

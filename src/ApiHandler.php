@@ -28,7 +28,8 @@ class ApiHandler
             'state' => $rpc->get_state(),
             'author' => $rpc->get_author(),
             'chain' => $rpc->get_chain(),
-            'grandpa' => $rpc->get_grandpa()
+            'grandpa' => $rpc->get_grandpa(),
+            'keypair' => $rpc->get_keypair()
         ];
         return $this;
     }

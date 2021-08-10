@@ -25,4 +25,13 @@ class Author
         return json_encode($result);
     }
 
+    /* author_submitExtrinsic endpoint API*/
+
+    public function submitExtrinsic(array $requestParameter)
+    {
+        $response = json_decode($this->apiHandler->APIHandler(Author::AUTHOR_PREFIX . __FUNCTION__, $requestParameter));
+        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        return json_encode($result);
+    }
+
 }

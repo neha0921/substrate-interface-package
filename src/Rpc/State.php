@@ -16,6 +16,14 @@ class State
     }
 
 
+    /* state_call endpoint API*/
+
+    public function call(array $requestParameter)
+    {
+        $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__, $requestParameter));
+        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        return json_encode($result);
+    }
     /* state_getMetadata endpoint API*/
 
     public function getMetadata()
@@ -62,6 +70,42 @@ class State
     public function unsubscribeStorage()
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__));
+        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        return json_encode($result);
+    }
+
+    /* state_getStorage endpoint API*/
+
+    public function getStorage(array $requestParameter)
+    {
+        $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__, $requestParameter));
+        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        return json_encode($result);
+    }
+
+    /* state_getStorageHash endpoint API*/
+
+    public function getStorageHash(array $requestParameter)
+    {
+        $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__, $requestParameter));
+        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        return json_encode($result);
+    }
+
+    /* state_getStorageSize endpoint API*/
+
+    public function getStorageSize(array $requestParameter)
+    {
+        $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__, $requestParameter));
+        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        return json_encode($result);
+    }
+
+    /* state_queryStorage endpoint API*/
+
+    public function queryStorage(array $requestParameter)
+    {
+        $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__, $requestParameter));
         $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         return json_encode($result);
     }
