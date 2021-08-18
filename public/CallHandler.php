@@ -159,5 +159,56 @@ if (isset($_POST['method_name'])) {
         case 'keypair_verify':
             echo  $obj->rpc->keypair->verify($params);
             break;
+        case 'runtime_getMetadata':
+            echo  $obj->rpc->runtime->getMetadata($params);
+            break;
+        case 'runtime_getMetadataModules':
+            echo  $obj->rpc->runtime->getMetadataModules($params);
+            break;
+        case 'runtime_getMetadataCallFunctions':
+            echo  $obj->rpc->runtime->getMetadataCallFunctions($params);
+            break;
+        case 'runtime_getMetadataStorageFunctions':
+            echo  $obj->rpc->runtime->getMetadataStorageFunctions($params);
+            break;
+        case 'runtime_getMetadataEvents':
+            echo  $obj->rpc->runtime->getMetadataEvents($params);
+            break;
+        case 'runtime_getMetadataEvent':
+            echo  $obj->rpc->runtime->getMetadataEvent($params);
+            break;
+        case 'runtime_getMetadataConstants':
+            echo  $obj->rpc->runtime->getMetadataConstants($params);
+            break;
+        case 'runtime_getTypeRegistry':
+            echo  $obj->rpc->runtime->getTypeRegistry();
+            break;
+        case 'runtime_getType':
+            echo  $obj->rpc->runtime->getType($params);
+            break;
+        case 'runtime_setCustomTypes':
+            echo  $obj->rpc->runtime->setCustomTypes($params);
+            break;
+        case 'runtime_addCustomType':
+            echo  $obj->rpc->runtime->addCustomType($params);
+            break;
+        case 'runtime_removeCustomType':
+            echo  $obj->rpc->runtime->removeCustomType($params);
+            break;
+        case 'runtime_getState':
+            echo  $obj->rpc->runtime->getState($params);
+            break;
+        case 'runtime_getMetadataErrors':
+            echo  $obj->rpc->runtime->getMetadataErrors($params);
+            break;
+        case 'runtime_getMetadataError':
+            echo  $obj->rpc->runtime->getMetadataError($params);
+            break;
+        case 'runtime_decodeScale':
+            echo  $obj->rpc->runtime->decodeScale($params);
+            break;
+        case 'runtime_encodeScale':
+            echo  $obj->rpc->runtime->encodeScale($params);
+            break;
     }
 }

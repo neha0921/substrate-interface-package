@@ -18,6 +18,7 @@ class Rpc
         $this->chain = new Chain($apiHandler);
         $this->grandpa = new Grandpa($apiHandler);
         $this->keypair = new Keypair($apiHandler);
+        $this->runtime = new Runtime($apiHandler);
     }
 
     public function get_system()
@@ -43,6 +44,10 @@ class Rpc
     public function get_keypair()
     {
         return ($this->keypair);
+    }
+    public function get_runtime()
+    {
+        return ($this->runtime);
     }
 
     /* rpc_methods endpoint API*/

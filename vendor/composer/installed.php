@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '818ddeb377b7a7c4b4c8c92fcddd81dbd915a86e',
         'name' => 'neha0921/substrate-interface-package',
         'dev' => true,
     ),
@@ -64,6 +64,15 @@
             'reference' => 'd5b8a9d852b292c2f8a035200fa6844b1f82300b',
             'dev_requirement' => true,
         ),
+        'furqansiddiqui/bip39-mnemonic-php' => array(
+            'pretty_version' => '0.1.4',
+            'version' => '0.1.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../furqansiddiqui/bip39-mnemonic-php',
+            'aliases' => array(),
+            'reference' => 'd5fda3707e64284438443ea76c26f775c99d6fed',
+            'dev_requirement' => false,
+        ),
         'myclabs/deep-copy' => array(
             'pretty_version' => '1.10.2',
             'version' => '1.10.2.0',
@@ -77,12 +86,12 @@
             ),
         ),
         'neha0921/substrate-interface-package' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '818ddeb377b7a7c4b4c8c92fcddd81dbd915a86e',
             'dev_requirement' => false,
         ),
         'phar-io/manifest' => array(

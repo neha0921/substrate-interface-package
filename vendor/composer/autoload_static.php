@@ -62,6 +62,10 @@ class ComposerStaticInit42f2a6f0e922fad311cf8c347e5df102
             'Prophecy\\' => 9,
             'PhpCsFixer\\' => 11,
         ),
+        'F' => 
+        array (
+            'FurqanSiddiqui\\BIP39\\' => 21,
+        ),
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
@@ -186,6 +190,10 @@ class ComposerStaticInit42f2a6f0e922fad311cf8c347e5df102
         'PhpCsFixer\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofphp/php-cs-fixer/src',
+        ),
+        'FurqanSiddiqui\\BIP39\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/furqansiddiqui/bip39-mnemonic-php/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
