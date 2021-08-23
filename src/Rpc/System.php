@@ -16,7 +16,14 @@ class System
         $this->apiHandler = $apiHandler;
     }
 
+    /* system_accountNextIndex endpoint API*/
 
+    public function accountNextIndex($account_address)
+    {
+        $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__, array($account_address)));
+        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        return json_encode($result);
+    }
 
     /* system_chain endpoint API*/
 

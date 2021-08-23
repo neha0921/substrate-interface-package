@@ -66,4 +66,9 @@ echo "Name :: ". $obj->token_symbol().'<br>';
 
 echo "chain :: ". $obj->rpc->system->chain().'<br>';
 
+echo "data ::";
+
+$inputData = $obj->rpc->keypair->generate_mnemonic();
+$menemonic = implode(' ',$inputData->words);
+print_r($obj->rpc->keypair->create_from_mnemonic($menemonic));
 ?>

@@ -3,7 +3,7 @@
 namespace neha0921\SubstrateInterfacePackage\Rpc;
 
 
-class Keypair
+class KeypairType
 {
    
 const ED25519 = 0;
