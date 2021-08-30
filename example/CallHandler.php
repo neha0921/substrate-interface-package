@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use nitorInfoTechOss\SubstrateInterfacePackage\SubstrateInterface;
+use neha0921\SubstrateInterfacePackage\SubstrateInterface;
 
 // $obj = new SubstrateInterface("http://127.0.0.1:8000");
 // echo $obj->rpc->rpc->methods();

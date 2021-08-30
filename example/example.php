@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace nitorInfoTechOss\SubstrateInterfacePackage;
+namespace neha0921\SubstrateInterfacePackage;
 
 require __DIR__ . '/../vendor/autoload.php';
 
