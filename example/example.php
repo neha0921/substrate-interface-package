@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace neha0921\SubstrateInterfacePackage;
+namespace nitorInfoTechOss\SubstrateInterfacePackage;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -60,15 +60,10 @@ require __DIR__ . '/../vendor/autoload.php';
 
 <?php
 
-$obj = new SubstrateInterface("http://127.0.0.1:8000");
+/* $obj = new SubstrateInterface("http://127.0.0.1:8000");
 
-echo "Name :: ". $obj->token_symbol().'<br>';
+echo "Name :: ". $obj->rpc->system->name().'<br>';
 
-echo "chain :: ". $obj->rpc->system->chain().'<br>';
+echo "chain :: ". $obj->rpc->system->chain().'<br>'; */
 
-echo "data ::";
-
-$inputData = $obj->rpc->keypair->generate_mnemonic();
-$menemonic = implode(' ',$inputData->words);
-print_r($obj->rpc->keypair->create_from_mnemonic($menemonic));
 ?>

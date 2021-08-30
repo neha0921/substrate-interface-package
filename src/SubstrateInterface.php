@@ -2,13 +2,15 @@
 
 namespace neha0921\SubstrateInterfacePackage;
 
+use neha0921\SubstrateInterfacePackage\Rpc\Keypair;
 use neha0921\SubstrateInterfacePackage\Rpc\Rpc;
+use neha0921\SubstrateInterfacePackage\Rpc\Transaction;
 
 class SubstrateInterface
 {
     const API_URL = "http://127.0.0.1:8000";
 
-    public $rpc;
+    public $rpc, $tx, $token_symbol, $token_decimals;
 
     public $APIurl;
 
@@ -37,8 +39,13 @@ class SubstrateInterface
             'author' => $rpc->get_author(),
             'chain' => $rpc->get_chain(),
             'grandpa' => $rpc->get_grandpa(),
-            'keypair' => $rpc->get_keypair(),
+            // 'keypair' => $rpc->get_keypair(),
             'runtime' => $rpc->get_runtime()
+        ];
+
+        $tx = new Transaction($this);
+        $this->tx = (object)[
+            'balances' => $tx->get_balances(),
         ];
         return $this;
     }
@@ -85,7 +92,7 @@ class SubstrateInterface
 
     public function ss58_format()
     {
-        if ($this->ss58_format == 'None') {
+        if ($this->ss58_format == 'None' || !$this->ss58_format) {
             $properies = json_decode($this->rpc->system->properties(), true);
             if (!empty($properies)) {
                 $this->ss58_format =  $properies['data']['ss58Format'];
@@ -127,5 +134,19 @@ class SubstrateInterface
         }
 
         return $this->token_symbol;
+    }
+
+    /* Set Signer endpoint API*/
+
+    public function setSigner($KeySet)
+    {
+        /* $this->public_key = $KeySet['public_key'];
+        $this->private_key = $KeySet['private_key'];
+        $this->address_type = $KeySet['address_type'];
+        $this->ss58_address = $KeySet['ss58_address']; */
+
+        $response = json_decode($this->APIHandler("keypair_sign", [$KeySet]));
+        $this->signature = ($response->result) ? $response->result->signature : NULL;
+        return $this->signature;
     }
 }
