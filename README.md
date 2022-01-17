@@ -40,6 +40,24 @@ echo $testClass->rpc->system->name();
 vendor/phpunit/phpunit/phpunit
 ```
 
+## To run TestCases
+
+I] Clone project
+git clone https://github.com/neha0921/substrate-interface-package.git
+
+II] Update Composer
+composer Update 
+	
+III] To check testcase run following command
+
+vendor/bin/phpunit
+
+e.g. ::
+
+1. vendor/bin/phpunit --filter testSystemName
+
+2. vendor/bin/phpunit --filter testRpcMethods
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
