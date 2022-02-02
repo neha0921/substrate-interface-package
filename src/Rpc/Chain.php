@@ -23,7 +23,7 @@ class Chain
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -88,7 +88,7 @@ class Chain
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -100,8 +100,8 @@ class Chain
     public function getFinalisedHead()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+         if (!empty($response)) {
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -114,7 +114,7 @@ class Chain
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -127,7 +127,7 @@ class Chain
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -140,7 +140,7 @@ class Chain
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -153,7 +153,7 @@ class Chain
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -166,7 +166,7 @@ class Chain
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -179,7 +179,7 @@ class Chain
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -192,7 +192,7 @@ class Chain
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -205,7 +205,7 @@ class Chain
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -218,7 +218,7 @@ class Chain
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }

@@ -22,7 +22,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -35,7 +35,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -48,7 +48,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -61,7 +61,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -74,7 +74,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -87,7 +87,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -100,7 +100,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -113,7 +113,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -125,8 +125,10 @@ class Runtime
     public function getType(array $requestParameter =[])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response) && isset($response->result)) {
+            $result =  ['status' => true, 'data' => $response->result];
+        } else if (!empty($response) && isset($response->error)) {
+            $result =  ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -139,7 +141,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -152,7 +154,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -165,7 +167,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -178,7 +180,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -191,7 +193,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -204,7 +206,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -217,7 +219,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -230,7 +232,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -243,7 +245,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -256,7 +258,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -269,7 +271,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -281,7 +283,7 @@ class Runtime
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }

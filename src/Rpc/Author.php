@@ -22,7 +22,7 @@ class Author
     {
         $response = json_decode($this->apiHandler->APIHandler(Author::AUTHOR_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -35,7 +35,7 @@ class Author
     {
         $response = json_decode($this->apiHandler->APIHandler(Author::AUTHOR_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }

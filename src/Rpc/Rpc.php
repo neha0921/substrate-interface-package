@@ -57,7 +57,7 @@ class Rpc
 
         $response = json_decode($this->apiHandler->APIHandler(Rpc::RPC_PREFIX . __FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -70,7 +70,7 @@ class Rpc
     {
         $response = json_decode($this->apiHandler->APIHandler(__FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
@@ -82,7 +82,7 @@ class Rpc
     {
         $response = json_decode($this->apiHandler->APIHandler(__FUNCTION__));
         if (!empty($response)) {
-            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
         } else {
             $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
         }
