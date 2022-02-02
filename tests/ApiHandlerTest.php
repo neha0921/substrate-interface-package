@@ -320,7 +320,7 @@ class ApiHandlerTest extends TestCase
 
         $obj = new SubstrateInterface("http://127.0.0.1:8000");
 
-        $actualResult = json_decode($obj->rpc->state->queryStorage([["0x0b76934f4cc08dee01012d059e1b83ee5e0621c4869aa60c02be9adcc98a0d1d"],"0x4b2308f6e2e6af1e93c6591333363bdf03cc0a94d7b6ad5e06a18d0892947d1e"]));
+        $actualResult = json_decode($obj->rpc->state->queryStorage([["0x0b76934f4cc08dee01012d059e1b83ee5e0621c4869aa60c02be9adcc98a0d1d"], "0x4b2308f6e2e6af1e93c6591333363bdf03cc0a94d7b6ad5e06a18d0892947d1e"]));
 
         $this->assertNotEmpty($actualResult->data);
     }
@@ -735,8 +735,10 @@ class ApiHandlerTest extends TestCase
     {
 
         $obj = new SubstrateInterface("http://127.0.0.1:8000");
-        $inputArray = ["ConsensusEngineId" => "h512",
-        "BlockNumber" => "u64"];
+        $inputArray = [
+            "ConsensusEngineId" => "h512",
+            "BlockNumber" => "u64"
+        ];
         $actualResult = json_decode($obj->rpc->runtime->setCustomTypes([json_encode($inputArray)]));
 
         $this->assertNotEmpty($actualResult->data);
@@ -749,7 +751,7 @@ class ApiHandlerTest extends TestCase
     {
 
         $obj = new SubstrateInterface("http://127.0.0.1:8000");
-        $actualResult = json_decode($obj->rpc->runtime->addCustomType([json_encode(["ConsensusEngineId","h512"])]));
+        $actualResult = json_decode($obj->rpc->runtime->addCustomType([json_encode(["ConsensusEngineId", "h512"])]));
 
         $this->assertNotEmpty($actualResult->data);
     }
@@ -773,7 +775,7 @@ class ApiHandlerTest extends TestCase
     {
 
         $obj = new SubstrateInterface("http://127.0.0.1:8000");
-        $actualResult = json_decode($obj->rpc->runtime->getState([json_encode(["System", "Events",[]])]));
+        $actualResult = json_decode($obj->rpc->runtime->getState([json_encode(["System", "Events", []])]));
 
         $this->assertNotEmpty($actualResult->data);
     }
@@ -797,7 +799,7 @@ class ApiHandlerTest extends TestCase
     {
 
         $obj = new SubstrateInterface("http://127.0.0.1:8000");
-        $actualResult = json_decode($obj->rpc->runtime->getMetadataError([json_encode(["Balances","LiquidityRestrictions",521155])]));
+        $actualResult = json_decode($obj->rpc->runtime->getMetadataError([json_encode(["Balances", "LiquidityRestrictions", 521155])]));
 
         $this->assertNotEmpty($actualResult->data);
     }
@@ -809,7 +811,7 @@ class ApiHandlerTest extends TestCase
     {
 
         $obj = new SubstrateInterface("http://127.0.0.1:8000");
-        $actualResult = json_decode($obj->rpc->runtime->decodeScale([json_encode(["BlockNumber","0x03000000"])]));
+        $actualResult = json_decode($obj->rpc->runtime->decodeScale([json_encode(["BlockNumber", "0x03000000"])]));
 
         $this->assertNotEmpty($actualResult->data);
     }
@@ -821,7 +823,7 @@ class ApiHandlerTest extends TestCase
     {
 
         $obj = new SubstrateInterface("http://127.0.0.1:8000");
-        $actualResult = json_decode($obj->rpc->runtime->encodeScale([json_encode(["BlockNumber",3])]));
+        $actualResult = json_decode($obj->rpc->runtime->encodeScale([json_encode(["BlockNumber", 3])]));
 
         $this->assertNotEmpty($actualResult->data);
     }
@@ -835,20 +837,21 @@ class ApiHandlerTest extends TestCase
 
         $testClass = new SubstrateInterface("http://127.0.0.1:8000");
         $responseData = json_decode($testClass->rpc->keypair->create([12]), true);
+        if (!empty($responseData) && isset($responseData['data']) && !empty($responseData['data'])) {
+            $ss58_address = $responseData['data']['ss58_address'];
+            $menemonic = $responseData['data']['mnemonic'];
+            $message = "Test my Keypair";
+            $FetchSign = json_decode($testClass->rpc->keypair->sign([$menemonic, $message]), true);
 
-        $ss58_address = $responseData['data']['ss58_address'];
-        $menemonic = $responseData['data']['mnemonic'];
-        $message = "Test my Keypair";
-        $FetchSign = json_decode($testClass->rpc->keypair->sign([$menemonic, $message]), true);
+            $signature = $FetchSign['data']['signature'];
 
-        $signature = $FetchSign['data']['signature'];
+            $params = array($ss58_address, $message, $signature);
 
-        $params = array($ss58_address, $message, $signature);
-
-        $isVerify = json_decode($testClass->rpc->keypair->verify($params), true);
-
+            $isVerify = json_decode($testClass->rpc->keypair->verify($params), true);
+        } else {
+            $isVerify = False;
+        }
 
         $this->assertContains(TRUE, $isVerify);
     }
 }
-

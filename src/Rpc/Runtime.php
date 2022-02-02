@@ -21,61 +21,89 @@ class Runtime
     public function getMetadata(array $requestParameter)
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_getMetadataModules endpoint API*/
 
-    public function getMetadataModules(array $requestParameter)
+    public function getMetadataModules(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_getMetadataCallFunctions endpoint API*/
 
-    public function getMetadataCallFunctions(array $requestParameter)
+    public function getMetadataCallFunctions(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_getMetadataStorageFunctions endpoint API*/
 
-    public function getMetadataStorageFunctions(array $requestParameter)
+    public function getMetadataStorageFunctions(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_getMetadataEvents endpoint API*/
 
-    public function getMetadataEvents(array $requestParameter)
+    public function getMetadataEvents(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_getMetadataEvent endpoint API*/
 
-    public function getMetadataEvent(array $requestParameter)
+    public function getMetadataEvent(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_getMetadataConstants endpoint API*/
 
-    public function getMetadataConstants(array $requestParameter)
+    public function getMetadataConstants(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -84,16 +112,24 @@ class Runtime
     public function getTypeRegistry()
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
-    
+
     /* runtime_getType endpoint API*/
 
-    public function getType(array $requestParameter)
+    public function getType(array $requestParameter =[])
     {
-        $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__,$requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -102,34 +138,50 @@ class Runtime
     public function getCustomTypes()
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_setCustomTypes endpoint API*/
 
-    public function setCustomTypes(array $requestParameter)
+    public function setCustomTypes(array $requestParameter = [])
     {
-        $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__,$requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_addCustomType endpoint API*/
 
-    public function addCustomType(array $requestParameter)
+    public function addCustomType(array $requestParameter = [])
     {
-        $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__,$requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_removeCustomType endpoint API*/
 
-    public function removeCustomType(array $requestParameter)
+    public function removeCustomType(array $requestParameter = [])
     {
-        $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__,$requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -138,71 +190,101 @@ class Runtime
     public function resetCustomTypes()
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_getState endpoint API*/
 
-    public function getState(array $requestParameter)
+    public function getState(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_getMetadataErrors endpoint API*/
 
-    public function getMetadataErrors(array $requestParameter)
+    public function getMetadataErrors(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_getMetadataError endpoint API*/
 
-    public function getMetadataError(array $requestParameter)
+    public function getMetadataError(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_decodeScale endpoint API*/
 
-    public function decodeScale(array $requestParameter)
+    public function decodeScale(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_encodeScale endpoint API*/
 
-    public function encodeScale(array $requestParameter)
+    public function encodeScale(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* runtime_createSignaturePayload endpoint API*/
 
-    public function createSignaturePayload(array $requestParameter)
+    public function createSignaturePayload(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
     /* runtime_submitExtrinsic endpoint API*/
 
-    public function submitExtrinsic(array $requestParameter)
+    public function submitExtrinsic(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(Runtime::RUNTIME_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
-
-    
 }

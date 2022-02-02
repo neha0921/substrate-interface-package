@@ -21,7 +21,11 @@ class System
     public function accountNextIndex($account_address)
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__, array($account_address)));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -30,7 +34,11 @@ class System
     public function chain()
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -39,7 +47,11 @@ class System
     public function chainType()
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -48,7 +60,11 @@ class System
     public function health()
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -57,7 +73,11 @@ class System
     public function localListenAddresses()
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
     /* system_localPeerId endpoint API*/
@@ -65,7 +85,11 @@ class System
     public function localPeerId()
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -74,7 +98,11 @@ class System
     public function name()
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -83,7 +111,11 @@ class System
     public function nodeRoles()
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -92,7 +124,11 @@ class System
     public function peers()
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
     /* system_properties endpoint API*/
@@ -100,7 +136,11 @@ class System
     public function properties()
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -109,7 +149,11 @@ class System
     public function reservedPeers()
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -118,7 +162,11 @@ class System
     public function syncState()
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -127,7 +175,11 @@ class System
     public function version()
     {
         $response = json_decode($this->apiHandler->APIHandler(System::SYSTEM_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 }

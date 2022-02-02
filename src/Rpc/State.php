@@ -22,7 +22,11 @@ class State
     public function call(array $requestParameter)
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
     /* state_getMetadata endpoint API*/
@@ -30,7 +34,11 @@ class State
     public function getMetadata()
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -39,7 +47,11 @@ class State
     public function getRuntimeVersion()
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
     /* state_subscribeRuntimeVersion endpoint API*/
@@ -47,7 +59,11 @@ class State
     public function subscribeRuntimeVersion()
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
     /* state_subscribeStorage endpoint API*/
@@ -55,7 +71,11 @@ class State
     public function subscribeStorage()
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
     /* state_unsubscribeRuntimeVersion endpoint API*/
@@ -63,7 +83,11 @@ class State
     public function unsubscribeRuntimeVersion()
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
     /* state_unsubscribeStorage endpoint API*/
@@ -71,7 +95,11 @@ class State
     public function unsubscribeStorage()
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -80,13 +108,17 @@ class State
     public function getStorage(array $requestParameter)
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
     /* state_getStorageAt endpoint API*/
 
-   /*  public function getStorageAt($block_hash,$metadata_decoder = NULL)
+    /*  public function getStorageAt($block_hash,$metadata_decoder = NULL)
     {
         ini_set('get_block_events will be replaced by get_events', 1);
         error_reporting(E_WARNING);
@@ -129,7 +161,11 @@ class State
     public function getStorageHash(array $requestParameter)
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -138,7 +174,11 @@ class State
     public function getStorageSize(array $requestParameter)
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -147,9 +187,11 @@ class State
     public function queryStorage(array $requestParameter)
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__, $requestParameter));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
-
-    
 }

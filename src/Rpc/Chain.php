@@ -22,7 +22,11 @@ class Chain
     public function getBlock()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -83,7 +87,11 @@ class Chain
     public function getBlockHash()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -92,8 +100,12 @@ class Chain
     public function getFinalisedHead()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        // $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
-        return $response->result;
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
+        return json_encode($result);
     }
 
     /* chain_getFinalizedHead endpoint API*/
@@ -101,7 +113,11 @@ class Chain
     public function getFinalizedHead()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -110,8 +126,12 @@ class Chain
     public function getHead()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        // $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
-        return $response->result;
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
+        return json_encode($result);
     }
 
     /* chain_getHeader endpoint API*/
@@ -119,7 +139,11 @@ class Chain
     public function getHeader()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -128,7 +152,11 @@ class Chain
     public function getRuntimeVersion()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -137,7 +165,11 @@ class Chain
     public function subscribeAllHeads()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -146,7 +178,11 @@ class Chain
     public function subscribeFinalisedHeads()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -155,7 +191,11 @@ class Chain
     public function subscribeFinalizedHeads()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -164,7 +204,11 @@ class Chain
     public function subscribeNewHead()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -173,7 +217,11 @@ class Chain
     public function subscribeNewHeads()
     {
         $response = json_decode($this->apiHandler->APIHandler(Chain::CHAIN_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 }

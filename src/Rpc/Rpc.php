@@ -56,7 +56,11 @@ class Rpc
     {
 
         $response = json_decode($this->apiHandler->APIHandler(Rpc::RPC_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => 1, 'data' => $response->result] : ['status' => 0, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -65,7 +69,11 @@ class Rpc
     public function subscribe_newHead()
     {
         $response = json_decode($this->apiHandler->APIHandler(__FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
     /* unsubscribe_newHead endpoint API*/
@@ -73,7 +81,11 @@ class Rpc
     public function unsubscribe_newHead()
     {
         $response = json_decode($this->apiHandler->APIHandler(__FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 }

@@ -21,7 +21,11 @@ class Grandpa
     public function roundState()
     {
         $response = json_decode($this->apiHandler->APIHandler(Grandpa::GRANDPA_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
 
@@ -30,9 +34,11 @@ class Grandpa
     public function subscribeJustifications()
     {
         $response = json_decode($this->apiHandler->APIHandler(Grandpa::GRANDPA_PREFIX . __FUNCTION__));
-        $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response)) {
+            $result = ($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        } else {
+            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+        }
         return json_encode($result);
     }
-
-
 }
