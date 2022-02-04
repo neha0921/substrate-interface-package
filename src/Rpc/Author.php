@@ -21,10 +21,12 @@ class Author
     public function pendingExtrinsics()
     {
         $response = json_decode($this->apiHandler->APIHandler(Author::AUTHOR_PREFIX . __FUNCTION__));
-        if (!empty($response)) {
-            $result = isset($response->result) ? ['status' => true, 'data' => $response->result] : ['status' => false, 'data' => $response->error];
+        if (!empty($response) && isset($response->result)) {
+            $result =  ['status' => true, 'data' => !empty($response->result) ? $response->result : 'Data Not Found'];
+        } else if (!empty($response) && isset($response->error)) {
+            $result =  ['status' => false, 'data' => !empty($response->error) ? $response->error : 'Data Not Found'];
         } else {
-            $result = ['status' => 0, 'data' => "Somthing is wrong..." . $response];
+            $result = ['status' => false, 'data' => "Somthing is wrong..."];
         }
         return json_encode($result);
     }

@@ -19,7 +19,7 @@ class State
 
     /* state_call endpoint API*/
 
-    public function call(array $requestParameter)
+    public function call(array $requestParameter = [])
     {
         $response = json_decode($this->apiHandler->APIHandler(State::STATE_PREFIX . __FUNCTION__, $requestParameter));
         if (!empty($response)) {

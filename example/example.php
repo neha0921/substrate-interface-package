@@ -59,11 +59,9 @@ require __DIR__ . '/../vendor/autoload.php';
 </html>
 
 <?php
+/*
+ $obj = new SubstrateInterface("http://127.0.0.1:8000");
 
-/* $obj = new SubstrateInterface("http://127.0.0.1:8000");
-
-echo "Name :: ". $obj->rpc->system->name().'<br>';
-
-echo "chain :: ". $obj->rpc->system->chain().'<br>'; */
-
+ echo "chain :: ". $obj->rpc->system->chain().'<br>'; 
+*/
 ?>
