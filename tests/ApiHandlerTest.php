@@ -856,7 +856,7 @@ class ApiHandlerTest extends TestCase
         } else {
             $isVerify = False;
         }
-        $this->assertContains(TRUE,$isVerify);
+        $this->assertContains(TRUE,[$isVerify]);
         
     }
 }
