@@ -848,17 +848,15 @@ class ApiHandlerTest extends TestCase
 
                 $params = array($ss58_address, $message, $signature);
 
-                $isVerify = json_decode($testClass->rpc->keypair->verify($params), true);
+                $responseR = json_decode($testClass->rpc->keypair->verify($params), true);
+                $isVerify = $responseR['data']['verified'];
             } else {
                 $isVerify = False;
             }
         } else {
             $isVerify = False;
         }
-        if ($isVerify) {
-            $this->assertTrue(true);
-        } else {
-            $this->assertFalse(false);
-        }
+        $this->assertContains(TRUE,$isVerify);
+        
     }
 }
