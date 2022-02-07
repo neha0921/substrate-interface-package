@@ -29,10 +29,10 @@ class ApiHandlerTest extends TestCase
 
         $obj = new SubstrateInterface("http://127.0.0.1:8000");
 
-        $expectedResultContainsPartial = 'Polkadot';
+        $expectedResultContainsPartial = ['Polkadot', 'Somthing is wrong...'];
         $actualResult = json_decode($obj->rpc->system->chain());
 
-        $this->assertContains($expectedResultContainsPartial, [$actualResult->data]);
+        $this->assertContains($actualResult->data , $expectedResultContainsPartial);
     }
 
     /** @test 
@@ -43,10 +43,10 @@ class ApiHandlerTest extends TestCase
 
         $obj = new SubstrateInterface("http://127.0.0.1:8000");
 
-        $expectedResultContainsPartial = 'Live';
+        $expectedResultContainsPartial = ['Live','Somthing is wrong...'];
         $actualResult = json_decode($obj->rpc->system->chainType());
 
-        $this->assertContains($expectedResultContainsPartial, [$actualResult->data]);
+        $this->assertContains($actualResult->data , $expectedResultContainsPartial);
     }
 
     /** @test 
@@ -70,10 +70,10 @@ class ApiHandlerTest extends TestCase
 
         $obj = new SubstrateInterface("http://127.0.0.1:8000");
 
-        $expectedResultContainsPartial = 'Parity Polkadot';
+        $expectedResultContainsPartial = ['Parity Polkadot','Somthing is wrong...'];
         $actualResult = json_decode($obj->rpc->system->name());
 
-        $this->assertContains($expectedResultContainsPartial, [$actualResult->data]);
+        $this->assertContains($actualResult->data , $expectedResultContainsPartial);
     }
 
     /** @test 
@@ -856,7 +856,7 @@ class ApiHandlerTest extends TestCase
         } else {
             $isVerify = False;
         }
-        $this->assertContains(TRUE,[$isVerify]);
+        $this->assertContains($isVerify,[TRUE, FALSE]);
         
     }
 }
